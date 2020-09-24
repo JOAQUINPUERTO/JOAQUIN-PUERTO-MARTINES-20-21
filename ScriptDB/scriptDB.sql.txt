@@ -1,0 +1,27 @@
+CREATE 	database pixomaticjpm; 
+
+USE pixomaticjpm;
+
+create table  companies (
+	id INT(10) NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30)  not null,
+    cif VARCHAR(9) UNIQUE  CHECK ( cif LIKE '[A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') , 
+    shortdesc varchar (100) ,
+    description Varchar(1000) not null, 
+    ccc varchar(14),
+    fecha DATE,
+    stado varchar(11) check (stado in ('abierto','cerrado','vacaciones')),
+    logo varchar(65535)  not null ,
+    email varchar(2000)  not null ,
+	PRIMARY KEY(id)
+);
+
+insert  into companies (name,shortdesc,description,ccc,fecha,stado,logo,email) values (
+"Bob","Descripción corta","Descripción larga.","12345678910111","2019-09-21","cerrado","https://dfefre.com","jopamg@gmail.com");
+
+CREATE table favorites (
+idd INT(9),
+idc INT(9)
+);
+select * from favorites;
+select * from companies;
