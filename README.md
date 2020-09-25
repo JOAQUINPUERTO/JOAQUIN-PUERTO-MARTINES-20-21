@@ -59,9 +59,24 @@ Una vez hecho esto iniciar un nueva base de datos en el  ' + ' y copiar los scri
 
 //////////////////////////////////////////////////////  MISION 3 ////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
+ 
+ - 1a funcionalidad  ( Logs de seguridad  )  (MISION 3 : A )
+   
+   En cuanto a esta funcionalidad sera relatada debido a que no pude avanzar mas  . 
+   En mi caso ajustaria que el sistema catalogase conmo ataque todo aquella petición  ( GET ,POST , PUT , DELETE )  que esté fuera de lo normal   como puede ser el metodo PUT      tiene prohibido intentar modificar el id , cif  , fecha y el email  , comprobaria que tiene valor en el body  y es diferente a lo que actualmete hay guardado y generaria un    log en el archivo " LOG.TXT " . 
+   Asi pues cualquier valor que se envie tanto por url como por el body de la petición que sea raro como puede ser un script , lo ignoraria y elevaria un log en el archivo log.
+  
+ - 2a funcionalidad ( Rendimiento de la aplicación ) ( MISION 3 : B ) 
+    Aquí expresaré mis ideas de como poder agilizar las cosultas   : 
+       
+        1º todo programa que hace consultas a una api o base de datos externas , se ve relentizada debido a la carga computacional que ello conlleva , pudiendo ser           insostenibles a la hora de que se vayan aumentando el numero de peticiones , las cuales la carga computacional no es lineal si no exponencial  , por lo que habria que hacer un registro de las consusltas mas habituales y generar una cache con las pertinentes respuestas , actualizandse estas en un tiempo prudencial para asegurar la veracidad de los mismos datos  . 
+        
+        2º Volveria a analizar el codigo y eliminaria bucles o estructuras de decisión que viese innecesario . 
+        
+        3º utilizar balanceo de carga para que , no se acumulen peticiones y por consiguiente la aplicación se relentice . 
+        
+        
+///////////// FIN DE LA MISION 3  ///////////////////////////////////
 
 Todas las pruebas realizadas se pueden ver en  mis pruebas de postman  : 
 https://web.postman.co/collections/6899262-c95ce5b3-96f2-430a-a2c0-9cafd38fb562?version=latest&workspace=769f2092-d1be-4827-88d1-d28131b30b54
