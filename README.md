@@ -1,5 +1,5 @@
 ﻿# joaquinpuerto
-# JOAQUIN-PUERTO-MARTINES-20-21
+# JOAQUIN-PUERTO-MARTINEZ-20-21
 Despliegues de proyectos 2020-2021 
 
 ////////// TECNOLOGIA USADA  //////////
