@@ -48,21 +48,7 @@ router.get('/companies/:id', (req,res) => {
 
 });
 
-// busqueda por normbre de la empresa (Añadido de mi parte )
-router.get('/companies/:name', (req,res) => {
 
-    const {name} = req.params;
-    DBconections.query( `select * from companies  where name = '${name}' `  , (err, filas ) => {
-   
-       if ( err) {
-           console.log("Se ha capturado un error => " + err);
-       }else {
-           res.json(filas);
-       }
-   
-    }); 
-   
-   });
 //////////////////    A   ///////////////////////////////////
 //////////////////// POST ///////////////////////////////
 // Almacenar compañia . 
@@ -82,18 +68,24 @@ router.post('/companies',js, (req,res) => {
         email : req.body.email
 
     }
+var aux = JSON.stringify(dataObject.cif); 
 
+const exp = /[A-Z]+/
+
+
+    console.log('Entramos en el if .'); 
     DBconections.query( sql , dataObject , (err,fila) => {
 
         if ( err) {
             console.log('Se ha capturado un error => '+err);
+            res.json('Pruebe otra vez . ');
         }else{
             res.json('200 ok');
         } 
 
 
     });
-    
+
 });
 ///////////////////////// B ////////////////////////////////////////////////////////
 ///////////////////////// Actualizar compañia .//////////////////////////////////////// 
@@ -293,8 +285,8 @@ function variable(variables){
 });
 
 ///////////////////////////////////     C     //////////////////////////////////////////////////////////
-
-router.get ('/owners' , js ,(req , res ) => {
+//////////////////////////////////
+router.get('/owners' , js ,(req , res ) => {
 // En vez de pasar el id por la url se le pasa por el body de la peticion así se consigue un poco mas de seguridad . 
  const {idd}= req.body; 
  console.log(idd);
@@ -336,14 +328,14 @@ router.get ('/owners' , js ,(req , res ) => {
             "data" : json1
         }
    
-      // console.log(json2);
+      //console.log(json2);
          res.json(json2); 
     //////////////////////////////////////////////////////////////////////////////
     }
    if ( JSON.stringify(JSON.parse(variables.body).data) == "[]"){
        res.json('No existe ese usuario .');
   
-    }else{
+    }else{  
         request.get ( 'https://gorest.co.in/public-api/posts?user_id='+idd,(err , filas ) => {
      //   console.log('Se ha entrado en el request  2 . ');
         if (err){
@@ -364,7 +356,9 @@ router.get ('/owners' , js ,(req , res ) => {
        // console.log('No ha habido error en el request . ');
         variable(filas);
          }
-    });
+   
+        });
+
 });
 //////////////////////////////////////// MISION 2 /////////////////////////////////////////////////////
 
