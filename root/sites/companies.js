@@ -256,7 +256,7 @@ function variable(variables){
 
                 
                     
-                }
+                } 
             }
         });
     }else{

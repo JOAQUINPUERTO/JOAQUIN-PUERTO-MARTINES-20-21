@@ -4,7 +4,7 @@ Despliegues de proyectos 2020-2021
 
 ////////// TECNOLOGIA USADA  //////////
  
-Lenguaje :  Nodejs ( javascript ) ; 
+Lenguaje :  Nodejs ( javascript ) , MYSQL; 
 Base de datos  : MSQL WORKBENCH  ,
 Tecnologia : Postman ,  XAMP  . 
 
