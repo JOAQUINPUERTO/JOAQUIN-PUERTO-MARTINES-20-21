@@ -185,7 +185,7 @@ router.get ('/owners/:page', js , (req ,  res ) => {
       // Parseamos los datos a JSON ya que no viene en un formato procesable y luego recuperamos el arreglo "data"  ;          
        var datos = JSON.parse(values.body).data;
        
-     console.log(datos);
+           console.log(datos);
      res.json(datos); 
     }; 
     
@@ -267,11 +267,16 @@ function variable(variables){
 // Se van a comprobar a continuación que existe el dueño .
 
         request.get ( 'https://gorest.co.in/public-api/users?id='+idd,(err , filas ) => {
+        
         console.log('Se ha entrado en el request . ');
+
         if (err){
             console.log('Se ha capturado el error => '+err);
+        
         }else{
+        
             console.log('No ha habido error en el request . ');
+        
             variable(filas);
              }
 
